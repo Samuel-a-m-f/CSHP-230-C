@@ -1,0 +1,24 @@
+﻿@model Assignment_1.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+</head>
+
+<header>
+    <h1 style="background-color: #181818; color:grey;">  Birthday Card Generator </h1>
+</header>
+
+
+
+<h1>
+    Birthday Card Sent
+</h1>
+
+<p>From: @Model.From </p>
+<p>To: @Model.To</p>
+<p>Message: @Model.Message</p>

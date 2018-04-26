@@ -1,0 +1,25 @@
+﻿@model Assignment_1.Models.GuestResponse
+@{
+    Layout = null;
+}
+
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Birthday Card Generator</title>
+
+
+
+</head>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+<header>
+    <h1  style="background-color: #181818; color:grey;">  Birthday Card Generator </h1>
+</header>
+    <h1>Send a Birthday Card</h1>
+    <p>From: @Html.TextBoxFor(t => t.From)</p>
+    <p>To: @Html.TextBoxFor(t => t.To)</p>
+    <p>Message: @Html.TextBoxFor(t => t.Message)</p>
+    <input type="submit" value="Send Card" />
+}
