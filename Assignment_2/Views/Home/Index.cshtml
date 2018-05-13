@@ -1,0 +1,74 @@
+﻿@{
+    //Layout = null;
+    ViewBag.Title = "Learning Center";
+    Layout = "~/Views/_Basic.cshtml";
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        .btn {
+            color: white;
+            text-decoration: white;
+            font-weight: 700;
+        }
+        .whiteTextOverride {
+            color: #eceff1 !important;
+        }
+        /*.row div {
+            background-color: #212121;
+        }*/
+        .mh1 div {
+            height: 100px; /* 30% of viewport height*/
+        }
+
+        body {
+            background-color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="row">
+    </div>
+
+    <div class="text-left" style="background-color:#e0e0e0">
+        <h1>The Learning Center</h1>
+        <h4>The place for technology classes</h4>
+
+        <div class="btn">
+            @Html.ActionLink("Learn more >>", "RsvpForm")
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-4" style="background-color:white;">
+            <div class="btn btn-link btn-lg">
+                @Html.ActionLink("Class List", "Class Offerings")
+            </div>
+            <div class="Class Offerings">See all our class offerings</div>
+        </div>
+
+        <div class="col-sm-4" style="background-color:white;">
+            <div class="btn btn-link btn-lg">
+                @Html.ActionLink("Your Enrolled Classes", "Class List")
+            </div>
+            <div>See the classes you are enrolled in.</div>
+        </div>
+
+        <div class="col-sm-4" style="background-color:white">
+            <div class="btn btn-link btn-lg">
+                @Html.ActionLink("Enroll in a Class", "Enroll Class")
+            </div>
+            <div class="Class Enroll">Take a new class.</div>
+        </div>
+    </div>
+</body>
+</html>
