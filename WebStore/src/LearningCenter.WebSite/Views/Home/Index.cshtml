@@ -1,0 +1,49 @@
+﻿@model LearningCenter.WebSite.Models.IndexModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home Page</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        .btn-default {
+            background: #0099cc;
+            color: #ffffff;
+        }
+    </style>
+
+</head>
+
+<div class="jumbotron">
+    <h1>Learning Center</h1>
+    <p class="lead">The place for technology classes.</p>
+
+    <div class="btn btn-link btn-lg">
+        @Html.ActionLink("Learn more >>", "LearnMore")
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-4">
+        <div class="btn btn-link btn-lg">
+            @Html.ActionLink("Class List", "Class Offerings")
+        </div>
+        <div class="Class Offerings">See all our class offerings</div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="btn btn-link btn-lg">
+            @Html.ActionLink("Your Enrolled Classes", "Class List")
+        </div>
+        <div>See the classes you are enrolled in.</div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="btn btn-link btn-lg">
+            @Html.ActionLink("Enroll in a Class", "Enroll Class")
+        </div>
+        <div class="Class Enroll">Take a new class.</div>
+    </div>
+</div>
