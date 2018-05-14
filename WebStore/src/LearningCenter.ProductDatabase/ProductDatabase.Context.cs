@@ -13,10 +13,10 @@ namespace LearningCenter.ProductDatabase
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Entities : DbContext
+    public partial class Entities4 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities4()
+            : base("name=Entities4")
         {
         }
     

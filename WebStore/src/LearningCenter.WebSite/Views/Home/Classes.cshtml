@@ -1,0 +1,32 @@
+﻿@model LearningCenter.WebSite.Models.IndexModel
+@{
+    ViewBag.Title = "Classes";
+}
+
+<html lang="en">
+
+<body>
+    <h2>Classes</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>@category.Price</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+
+

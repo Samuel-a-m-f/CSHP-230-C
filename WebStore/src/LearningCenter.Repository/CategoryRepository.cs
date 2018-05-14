@@ -12,6 +12,8 @@ namespace LearningCenter.Repository
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
+        public decimal Price { get; set; }
     }
 
     public class CategoryRepository : ICategoryRepository
@@ -21,7 +23,7 @@ namespace LearningCenter.Repository
             get
             {
                 return DatabaseAccessor.Instance.Classes
-                                               .Select(t => new CategoryModel { Id = t.ClassId, Name = t.ClassName })
+                                               .Select(t => new CategoryModel { Id = t.ClassId, Name = t.ClassName, Description = t.ClassDescription, Price = t.ClassPrice })
                                                .ToArray();
             }
         }
@@ -30,7 +32,7 @@ namespace LearningCenter.Repository
         {
             var category = DatabaseAccessor.Instance.Classes
                                                    .Where(t => t.ClassId == categoryId)
-                                                   .Select(t => new CategoryModel { Id = t.ClassId, Name = t.ClassName })
+                                                   .Select(t => new CategoryModel { Id = t.ClassId, Name = t.ClassName, Description = t.ClassDescription, Price = t.ClassPrice })
                                                    .First();
             return category;
         }
