@@ -14,9 +14,10 @@ namespace LearningCenter.WebSite.Models
         public string Name { get; set; }
 
 
-        public EnrollmentModel(int classId, string name, decimal price, string description)
+        public EnrollmentModel(int classId, int userId, string name, decimal price, string description)
         {
             ClassId = classId;
+            UserId = userId;
             Name = name;
             Price = price;
             Description = description;

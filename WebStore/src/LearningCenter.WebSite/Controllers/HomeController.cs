@@ -52,14 +52,7 @@ namespace LearningCenter.WebSite.Controllers
             this.productManager = productManager;
         }
 
-        public ActionResult Classes()
-        {
-            var categories = categoryManager.Categories
-                                .Select(t => new LearningCenter.WebSite.Models.CategoryModel(t.Id, t.Name, t.Description, t.Price))
-                                .ToArray();
-            var model = new IndexModel { Categories = categories };
-            return View(model);
-        }
+
 
         public ActionResult LogIn()
         {
@@ -116,37 +109,41 @@ namespace LearningCenter.WebSite.Controllers
             return View();
         }
 
+        public ActionResult Classes()
+        {
+            var categories = categoryManager.Categories
+                                .Select(t => new LearningCenter.WebSite.Models.CategoryModel(t.Id, t.Name, t.Description, t.Price))
+                                .ToArray();
+            var model = new IndexModel { Categories = categories };
+            return View(model);
+        }
+
         [HttpPost]
         public ActionResult StudentClassEnroll(IndexModel enroll)
         {
             var user = (LearningCenter.WebSite.Models.UserModel)Session["User"];
             int classId = int.Parse(enroll.classToAdd);
-            enrollmentManager.Add(user.Id, classId);
+            enrollmentManager.Add(userId: user.Id, classId: classId);
             return RedirectToAction("Studentclasses");
         }
 
-
-        [Authorize]
-        [HttpGet]
         public ActionResult StudentClassEnroll()
         {
 
-            var classlist = categoryManager.Categories
+            var categories = categoryManager.Categories
                                         .Select(t => new LearningCenter.WebSite.Models.CategoryModel(t.Id, t.Name, t.Description, t.Price))
                                         .ToArray();
-            var model = new IndexModel { Categories = classlist };
+            var model = new IndexModel { Categories = categories };
             return View(model);
         }
 
-        [Authorize]
-        [HttpGet]
         public ActionResult Studentclasses()
         {
 
-            var user = (LearningCenter.WebSite.Models.UserModel)Session["User"];
+            var user = (Models.UserModel)Session["User"];
 
-            var registeredClasses = enrollmentManager.GetAll(user.Id)
-                .Select(t => new LearningCenter.WebSite.Models.EnrollmentModel(t.ClassId, t.Name, t.ClassPrice, t.Description))
+            var registeredClasses = enrollmentManager.GetAll(userId: user.Id)
+                .Select(t => new Models.EnrollmentModel(t.ClassId, t.UserId, t.Name, t.ClassPrice, t.Description))
                 .ToList();
 
             var classlist = categoryManager.Categories
